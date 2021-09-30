@@ -20,12 +20,16 @@ Compares `a`, `b`, and `c`; returns the median value of the three.
 
 # `splitToList(str)`: table
 * `str` (string): The string to split
+* `sep` (string): The characters upon which to split `str`; can include pattern-escaped characters; defaults to `"%s"`.
 
-Splits a string at its spaces into a table of one-word strings. For example, `"Hello world"` becomes `{"Hello", "world"}`.
+Splits a string at its spaces (or `sep`) into a table of one-word strings. For example, `"Hello world"` becomes `{"Hello", "world"}`.
 
 ---
 
 # `splitToSet(str)`: table
 * `str` (string): The string to split
+* `sep` (string): The characters upon which to split `str`; can include pattern-escaped characters; defaults to `"%s"`
+* `del` (string): The string upon which to split an entry from its key; defaults to `":"`; can include pattern-escaped characters
+* `def` (any): The value given to keys that do not include `del`. Defaults to `true`.
 
-Splits a string at its spaces into a table, where each word from the string is a key with value `true`. For example, `"Hello world"` becomes `{Hello = true, world = true}`.
+Splits a string at its spaces (or `sep`) into a table, where each word from the string is split again at a colon (or `del`) into a key/value, or treated as a key with value `true` (or `def`). For example, `"Hello:3 world"` becomes `{Hello = "3", world = true}`.

@@ -1,7 +1,7 @@
 {
 	"name": "NixLib",
 	"displayName": "NixLib",
-	"version": "1.0.0",
+	"version": "1.1.1",
 	"synchronyVersion": "0.40",
 	"description": "Helper functions for Nix's mods that they don't want to rewrite with every new mod. Source and docs on GitHub: /stevenh237/Synchrony-NixLib",
 	"author": "Nixill",

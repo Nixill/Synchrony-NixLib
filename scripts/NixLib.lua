@@ -15,25 +15,31 @@ function module.median(a, b, c)
   end
 end
 
-function module.splitToList(str)
+function module.splitToList(str, sep)
   if not str then return {} end
-
+  sep = sep or "%s"
+  
   local out = {}
-
-  for token in str:gmatch("[^%s]+") do
+  
+  for token in str:gmatch("[^" .. sep .. "]+") do
     table.insert(out, token)
   end
-
+  
   return out
 end
 
-function module.splitToSet(str)
+function module.splitToSet(str, sep, del, def)
   if not str then return {} end
+  sep = sep or "%s"
+  del = del or ":"
+  def = def or true
 
   local out = {}
 
-  for token in str:gmatch("[^%s]+") do
-    out[token] = true
+  for token in str:gmatch("[^" .. sep .. "]+") do
+    local k, v = string.match(token, "^([^" .. del .. "]+)" .. del .. "(.+)$")
+    if k then out[k] = v
+    else out[token] = true end
   end
 
   return out
