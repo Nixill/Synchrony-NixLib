@@ -1,5 +1,22 @@
 local module = {}
 
+function module.bitSplit(value, log)
+  local out = {}
+
+  for i = 31, 0, -1 do
+    local twoI = bit.lshift(1, i)
+    if bit.band(value, twoI) == twoI then
+      if log then
+        table.insert(out, i)
+      else
+        table.insert(out, twoI)
+      end
+    end
+  end
+
+  return out
+end
+
 function module.checkFlags(value, test, all)
   if all then return bit.band(value, test) == test
   else return bit.band(value, test) ~= 0 end

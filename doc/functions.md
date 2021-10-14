@@ -1,3 +1,13 @@
+# `bitSplit(value, log)`: table
+* `value` (integer): The value to test
+* `log` (bool): Whether or not the actual values or powers should be shown.
+
+Splits `value` into a table of its "1" bits. For example, `bitSplit(237)` is `{128, 64, 32, 8, 4, 1}`.
+
+If `log` is true, then all of the values in the table will be taken log base 2. For example, `bitSplit(237, true)` is `{7, 6, 5, 3, 2, 0}`.
+
+---
+
 # `checkFlags(value, test, all)`: bool
 * `value` (integer): The value to test
 * `test` (integer): The test to pass or fail
