@@ -24,6 +24,10 @@ function module.checkFlags(value, test, all)
   else return bit.band(value, test) ~= 0 end
 end
 
+function module.getComponent(name)
+  return NLEvent.getComponentTable()[name]
+end
+
 function module.getComponents()
   return NLEvent.getComponentTable()
 end

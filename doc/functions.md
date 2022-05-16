@@ -1,3 +1,7 @@
+`local NixLib = require "NixLib.NixLib"`
+
+---
+
 # `bitSplit(value, log)`: table
 * `value` (integer): The value to test
 * `log` (bool): Whether or not the actual values or powers should be shown.
@@ -19,9 +23,16 @@ If `all` is set, `value` must have at least all `1`s from `test` (though may hav
 
 ---
 
-# `getComponentTable()`: table
+# `getComponent(name)`: table
+* `name` (string): The name of the component to get
 
-Gets the table of all components in the game.
+Gets a single component from the game, including its field defaults. Returns `nil` if the component doesn't exist.
+
+---
+
+# `getComponents()`: table
+
+Gets the table of all components in the game, as a key-value table.
 
 ---
 
