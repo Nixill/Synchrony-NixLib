@@ -1,6 +1,6 @@
 local Event = require "necro.event.Event"
 
-local componentTable = nil
+local componentTable = {}
 
 Event.entitySchemaGenerate.add("components", { order = "components", sequence = 1 }, function(ev)
   local comps = ev.components
