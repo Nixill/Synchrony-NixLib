@@ -19,6 +19,12 @@ If `all` is set, `value` must have at least all `1`s from `test` (though may hav
 
 ---
 
+# `getComponentTable()`: table
+
+Gets the table of all components in the game.
+
+---
+
 # `median(a, b, c)`: number
 * `a` (number): The first number to test
 * `b` (number): The second number to test

@@ -1,3 +1,5 @@
+local NLEvent = require "NixLib.NixLibEvents"
+
 local module = {}
 
 function module.bitSplit(value, log)
@@ -22,6 +24,10 @@ function module.checkFlags(value, test, all)
   else return bit.band(value, test) ~= 0 end
 end
 
+function module.getComponents()
+  return NLEvent.getComponentTable()
+end
+
 function module.median(a, b, c)
   if (a >= b and b >= c) then return b
   elseif (a <= b and b <= c) then return b
@@ -35,13 +41,13 @@ end
 function module.splitToList(str, sep)
   if not str then return {} end
   sep = sep or "%s"
-  
+
   local out = {}
-  
+
   for token in str:gmatch("[^" .. sep .. "]+") do
     table.insert(out, token)
   end
-  
+
   return out
 end
 
