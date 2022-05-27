@@ -1,3 +1,6 @@
+local Netplay   = require "necro.network.Netplay"
+local Resources = require "necro.client.Resources"
+
 local NLEvent = require "NixLib.NixLibEvents"
 
 local module = {}
@@ -30,6 +33,20 @@ end
 
 function module.getComponents()
   return NLEvent.getComponentTable()
+end
+
+function module.getModVersion(modName)
+  local mods = Resources.getData(Netplay.Resource.MOD_LIST)
+
+  if mods == nil then return nil end
+
+  for i, v in ipairs(mods) do
+    if v.name == modName then
+      return v.name, v.package
+    end
+  end
+
+  return false
 end
 
 function module.median(a, b, c)

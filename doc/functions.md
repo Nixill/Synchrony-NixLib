@@ -36,6 +36,19 @@ Gets the table of all components in the game, as a key-value table.
 
 ---
 
+# `getModVersion(name)`: bool, string, bool
+* `name` (string): The name of the mod to check.
+
+Returns whether or not a given mod is loaded, and if so, also the version:
+
+* `nil` if the mod list isn't loaded yet.
+* `false` if the mod in question isn't loaded (but the list is).
+* `true` if the mod list and mod are both loaded. If so, has additional return values:
+  * (string): The mod's version.
+  * (bool): Whether or not the mod is packaged.
+
+---
+
 # `median(a, b, c)`: number
 * `a` (number): The first number to test
 * `b` (number): The second number to test
