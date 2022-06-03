@@ -27,6 +27,15 @@ function module.checkFlags(value, test, all)
   else return bit.band(value, test) ~= 0 end
 end
 
+function module.extendTable(table, key)
+  local index = 1
+  for k, v in pairs(table) do
+    index = index + 1
+  end
+  table[key] = index
+  return index
+end
+
 function module.getComponent(name)
   return NLEvent.getComponentTable()[name]
 end
