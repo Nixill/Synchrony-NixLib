@@ -98,4 +98,12 @@ function module.splitToSet(str, sep, del, def)
   return out
 end
 
+function module.ternary(cond, iftrue, iffalse)
+  if cond then
+    return iftrue
+  else
+    return iffalse
+  end
+end
+
 return module
