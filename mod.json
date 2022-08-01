@@ -1,8 +1,8 @@
 {
-	"name": "NixLib",
+	"namespace": "NixLib",
 	"displayName": "NixLib",
-	"version": "1.4.0",
-	"synchronyVersion": "3.0.0",
+	"version": "2.0.1",
+	"synchronyVersion": "3.1.0",
 	"description": "Helper functions for Nix's mods that they don't want to rewrite with every new mod. Source and docs on GitHub: /stevenh237/Synchrony-NixLib",
 	"author": "Nixill",
 	"dependencies": {},
@@ -11,5 +11,11 @@
 	},
 	"icon": "NixLibIcon.png",
 	"banner": "NixLibBanner.png",
-	"tags": []
+	"tags": [],
+	"name": "NixLib_io_2237103",
+	"homepageURL": "https://crypt.mod.io/nixlib",
+	"modioID": "2237103",
+	"modioUserID": 12939888,
+	"pendingVersion": "2.0.0",
+	"visibility": 2
 }
