@@ -6,16 +6,14 @@
 	"description": "Helper functions for Nix's mods that they don't want to rewrite with every new mod. Source and docs on GitHub: /stevenh237/Synchrony-NixLib",
 	"author": "Nixill",
 	"dependencies": {},
-	"api": {
-		"scriptPath": "scripts"
-	},
+	"api": {"scriptPath":"scripts"},
 	"icon": "NixLibIcon.png",
 	"banner": "NixLibBanner.png",
 	"tags": [],
 	"name": "NixLib_io_2237103",
-	"homepageURL": "https://crypt.mod.io/nixlib",
+	"homepageURL": "https://mod.io/g/crypt/m/NixLib",
 	"modioID": "2237103",
 	"modioUserID": 12939888,
-	"pendingVersion": "2.0.0",
-	"visibility": 2
+	"pendingVersion": "2.0.1",
+	"visibility": 0
 }
