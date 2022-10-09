@@ -1,11 +1,2 @@
-local module = {}
-
-module.No       = L "No"
-module.Yes      = L "Yes"
-module.Done     = L "Done"
-module.Cancel   = L "Cancel"
-module.Reset    = L "Reset"
-module.Default  = L "Default"
-module.Continue = L "Continue"
-
-return module
+-- This file exists for backwards compatibility purposes! New code should not use it.
+return require "NixLib.i18n.Text"
