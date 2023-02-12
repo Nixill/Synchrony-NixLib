@@ -1,7 +1,7 @@
 {
 	"namespace": "NixLib",
 	"displayName": "NixLib",
-	"version": "2.0.2",
+	"version": "2.1.0",
 	"synchronyVersion": "3.1.0",
 	"description": "Helper functions for Nix's mods that they don't want to rewrite with every new mod. Source and docs on GitHub: /stevenh237/Synchrony-NixLib",
 	"author": "Nixill",
@@ -11,10 +11,10 @@
 	"banner": "NixLibBanner.png",
 	"tags": [],
 	"name": "NixLib_io_2237103",
-	"changelog": "- NixLib.i18n.KeyBank -> NixLib.i18n.Text\n- (KeyBank still works as an alias)\n- Added \"disable\" and \"enable\" to the text pool",
+	"changelog": "Add `join`, `sjoin`, `sortBy`, and `sortByMany` functions",
 	"homepageURL": "https://mod.io/g/crypt/m/NixLib",
 	"modioID": "2237103",
 	"modioUserID": 12939888,
-	"pendingVersion": "2.0.2",
+	"pendingVersion": "2.1.0",
 	"visibility": 0
 }
