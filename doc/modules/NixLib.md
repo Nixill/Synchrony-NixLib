@@ -49,12 +49,30 @@ Returns whether or not a given mod is loaded, and if so, also the version:
 
 ---
 
+# `join(tbl, sep)`: string
+* `tbl` (table): The ipairs-compatible table to join
+* `sep` (string): The separator with which to join the items
+
+Iterates over the numeric keys of the table (using `ipairs`), joining their values together with the given separator. Returns the joined string.
+
+---
+
 # `median(a, b, c)`: number
 * `a` (number): The first number to test
 * `b` (number): The second number to test
 * `c` (number): The third number to test
 
 Compares `a`, `b`, and `c`; returns the median value of the three.
+
+---
+
+# `sjoin(l, r, sep, force)`: string or nil
+* `l` (string or nil): The item to place left of the separator
+* `r` (string or nil): The item to place right of the separator
+* `sep` (string): The separator to use if both `l` and `r` exist
+* `force` (bool): If `true`, `sep` is *always* included. Otherwise, `sep` is only included if both `l` and `r` are non-`nil`.
+
+Returns `l`, `sep`, and `r` as one string, if all are non-nil. Otherwise, only the non-`nil` input is included. Returns `nil` if inputs are both `nil` and `sep` is not `force`d.
 
 ---
 

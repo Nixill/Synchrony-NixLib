@@ -58,14 +58,88 @@ function module.getModVersion(modName)
   return false
 end
 
+function module.join(tbl, sep)
+  sep = sep or ""
+  local str = ""
+
+  for i, v in ipairs(tbl) do
+    if i ~= 1 then str = str .. sep end
+    str = str .. v
+  end
+
+  return str
+end
+
 function module.median(a, b, c)
   if (a >= b and b >= c) then return b
   elseif (a <= b and b <= c) then return b
   elseif (b <= a and a <= c) then return a
   elseif (b >= a and a >= c) then return a
   elseif (a >= c and c >= b) then return c
-  elseif (a <= c and c <= b) then return b
+  elseif (a <= c and c <= b) then return c
   end
+end
+
+function module.sjoin(l, r, sep, force)
+  sep = sep or ""
+  if l and r then return l .. sep .. r
+  elseif l then
+    if force then return l .. sep
+    else return l end
+  elseif r then
+    if force then return sep .. r
+    else return r end
+  else
+    if force then return sep
+    else return nil end
+  end
+end
+
+local function getKey(item, key)
+  if type(key) == "function" then
+    return key(item)
+  else
+    return item[key]
+  end
+end
+
+function module.sortBy(tbl, key, cmp)
+  cmp = cmp or function(l, r) return l < r end
+
+  table.sort(tbl, function(left, right)
+    local lKey = getKey(left, key)
+    local rKey = getKey(right, key)
+    return cmp(lKey, rKey)
+  end)
+end
+
+function module.sortByMany(tbl, cmp, ...)
+  local keys = { ... }
+  cmp = cmp or function(l, r)
+    if l == r then
+      return 0
+    elseif l < r then
+      return -1
+    else
+      return 1
+    end
+  end
+
+  table.sort(tbl, function(left, right)
+    for i, v in ipairs(keys) do
+      local lKey = getKey(left, v)
+      local rKey = getKey(right, v)
+      local comp = cmp(lKey, rKey)
+
+      if comp < 0 then
+        return true
+      elseif comp > 0 then
+        return false
+      end
+    end
+
+    return false
+  end)
 end
 
 function module.splitToList(str, sep)

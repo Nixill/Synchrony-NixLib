@@ -1,6 +1,7 @@
 local module = {}
 
 module.Cancel    = L("Cancel", "cancel")
+module.Close     = L("Close", "close")
 module.Continue  = L("Continue", "continue")
 module.Default   = L("Default", "default")
 module.Disable   = L("Disable", "disable")
