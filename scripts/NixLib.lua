@@ -44,14 +44,25 @@ function module.getComponents()
   return NLEvent.getComponentTable()
 end
 
+--@deprecated
 function module.getModVersion(modName)
+  local a, b, c = module.isModLoaded(modName)
+
+  if a then
+    return modName, c
+  else
+    return a
+  end
+end
+
+function module.isModLoaded(modName)
   local mods = Resources.getData(Netplay.Resource.MOD_LIST)
 
   if mods == nil then return nil end
 
   for i, v in ipairs(mods) do
     if v.name == modName then
-      return v.name, v.package
+      return true, v.version, v.package
     end
   end
 

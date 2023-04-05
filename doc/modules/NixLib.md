@@ -36,7 +36,22 @@ Gets the table of all components in the game, as a key-value table.
 
 ---
 
-# `getModVersion(name)`: bool, string, bool
+# `getModVersion(name)`: (nil) or (bool) or (string, bool)
+* `name` (string): The name of the mod to check.
+
+⚠️ **DEPRECATED:** I severely messed up the return values of this function; it doesn't even return its namesake. See [`isModLoaded(name)`](#ismodloadedname-bool-string-bool) for what it *should've* been; the *actual* return values are now documented below. This function will eventually be removed in favor of `isModLoaded`.
+
+Return value varies based on whether or not the mod is loaded:
+
+* `nil` if the mod list isn't loaded yet.
+* `false` if the mod in question isn't loaded (but the list is).
+* If the mod *is* loaded:
+  * (string): The mod's name.
+  * (bool): Whether or not the mod is packaged.
+
+---
+
+# `isModLoaded(name)`: bool, string, bool
 * `name` (string): The name of the mod to check.
 
 Returns whether or not a given mod is loaded, and if so, also the version:
