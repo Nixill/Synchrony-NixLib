@@ -27,14 +27,14 @@ function module.checkFlags(value, test, all)
   else return bit.band(value, test) ~= 0 end
 end
 
-function module.extendTable(table, key)
-  local index = 1
-  for k, v in pairs(table) do
-    index = index + 1
-  end
-  table[key] = index
-  return index
-end
+-- function module.extendTable(tbl, key)
+--   local index = 1
+--   for k, v in pairs(tbl) do
+--     index = index + 1
+--   end
+--   tbl[key] = index
+--   return index
+-- end
 
 function module.getComponent(name)
   return NLEvent.getComponentTable()[name]
@@ -128,11 +128,11 @@ function module.sortByMany(tbl, cmp, ...)
   local keys = { ... }
   cmp = cmp or function(l, r)
     if l == r then
-      return 0
+      return false, true
     elseif l < r then
-      return -1
+      return true, false
     else
-      return 1
+      return false, false
     end
   end
 
@@ -140,12 +140,20 @@ function module.sortByMany(tbl, cmp, ...)
     for i, v in ipairs(keys) do
       local lKey = getKey(left, v)
       local rKey = getKey(right, v)
-      local comp = cmp(lKey, rKey)
+      local compLT, compEQ = cmp(lKey, rKey)
 
-      if comp < 0 then
-        return true
-      elseif comp > 0 then
-        return false
+      if type(compLT) == "number" then
+        if compLT < 0 then
+          return true
+        elseif compLT > 0 then
+          return false
+        end
+      elseif type(compLT) == "boolean" and type(compEQ) == "boolean" then
+        if compLT then
+          return true
+        elseif not compEQ then
+          return false
+        end
       end
     end
 
@@ -189,6 +197,34 @@ function module.ternary(cond, iftrue, iffalse)
   else
     return iffalse
   end
+end
+
+function module.versionCompare(left, right)
+  if left == right then return false, true end
+
+  local lVer = {}
+
+  for i, v in ipairs(module.splitToList(left, ".")) do
+    local num = tonumber(v)
+    if not num then error("Mod version strings must have numeric components.") end
+    table.insert(lVer, num)
+  end
+
+  local rVer = {}
+
+  for i, v in ipairs(module.splitToList(right, ".")) do
+    local num = tonumber(v)
+    if not num then error("Mod version strings must have numeric components.") end
+    table.insert(rVer, num)
+  end
+
+  for i = 1, math.min(#lVer, #rVer) do
+    if lVer[i] ~= rVer[i] then
+      return lVer[i] < rVer[i], false
+    end
+  end
+
+  return #lVer < #rVer, #lVer == #rVer
 end
 
 return module
