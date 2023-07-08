@@ -1,7 +1,7 @@
 {
 	"namespace": "NixLib",
 	"displayName": "NixLib",
-	"version": "2.1.1",
+	"version": "2.2.0",
 	"synchronyVersion": "3.1.0",
 	"description": "Helper functions for Nix's mods that they don't want to rewrite with every new mod. Source and docs on GitHub: /stevenh237/Synchrony-NixLib",
 	"author": "Nixill",
@@ -15,6 +15,6 @@
 	"homepageURL": "https://mod.io/g/crypt/m/nixlib",
 	"modioID": "2237103",
 	"modioUserID": 12939888,
-	"pendingVersion": "2.1.1",
+	"pendingVersion": "2.2.0",
 	"visibility": 0
 }
